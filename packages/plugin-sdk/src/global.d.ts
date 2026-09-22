@@ -27,6 +27,8 @@ export interface Song {
   bit_rate: number;
   sample_rate: number;
   is_live: boolean;
+  /** 是否含视频画面（电台直播画面 / 网络视频歌曲；本地由 ffprobe 探测，网络歌曲与电台由插件或用户声明） */
+  is_video: boolean;
   plugin_entry_path?: string;
   source_data?: string;
   dedup_key?: string;
@@ -280,6 +282,8 @@ export interface CreateSongInput {
   lyric?: string;
   lyricSource?: string;
   lyricRemoteUrl?: string;
+  /** 是否含视频画面（视频电台/直播流）；声明后后端按视频歌曲处理 */
+  isVideo?: boolean;
 }
 
 /** 更新歌曲的可选字段 */
@@ -290,6 +294,8 @@ export interface UpdateSongFields {
   url?: string;
   coverUrl?: string;
   duration?: number;
+  /** 是否含视频画面 */
+  isVideo?: boolean;
 }
 
 export interface SongloftSongs {

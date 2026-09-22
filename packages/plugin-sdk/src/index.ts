@@ -146,6 +146,8 @@ export interface SearchResultItem {
   duration: number;
   cover_url?: string;
   source_data: Record<string, unknown>;
+  /** 是否为视频内容（电视直播/视频电台）；声明后导入为视频歌曲 */
+  is_video?: boolean;
 }
 
 /** search handler 配置。 */
